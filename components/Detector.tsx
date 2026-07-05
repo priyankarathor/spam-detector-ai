@@ -62,50 +62,50 @@ async function handleAnalyze() {
     console.log("API Response:", data);
 
    const prediction: PredictionResult = {
-  id: crypto.randomUUID(),
+        id: crypto.randomUUID(),
 
-  message: data.input_message,
+        message: data.input_message,
 
-  verdict: data.prediction === "Spam" ? "spam" : "safe",
+        verdict: data.prediction === "Spam" ? "spam" : "safe",
 
-  confidence: data.prediction === "Spam" ? 95 : 96,
+        confidence: data.prediction === "Spam" ? 95 : 96,
 
-  topSignals:
-    data.prediction === "Spam"
-      ? [
-          "Spam Keywords",
-          "Marketing Language",
-          "Urgent Offer",
-        ]
-      : [
-          "Safe Content",
-        ],
-// createdAt: new Date().toISOString(),
-};
+        topSignals:
+          data.prediction === "Spam"
+            ? [
+                "Spam Keywords",
+                "Marketing Language",
+                "Urgent Offer",
+              ]
+            : [
+                "Safe Content",
+              ],
+      createdAt: new Date().toISOString(),
+      };
 
-    setResult(prediction);
+          setResult(prediction);
 
-    onResult(prediction);
+          onResult(prediction);
 
-  } catch (err: any) {
+        } catch (err: any) {
 
-    console.error(err);
+          console.error(err);
 
-    alert(
-      err.message ||
-      "Unable to connect to Spam Detection API."
-    );
+          alert(
+            err.message ||
+            "Unable to connect to Spam Detection API."
+          );
 
-  } finally {
+        } finally {
 
-    setLoading(false);
+          setLoading(false);
 
-  }
-}
-  function loadSample(i: number) {
-    setText(SAMPLE_MESSAGES[i]);
-    setResult(null);
-  }
+        }
+      }
+        function loadSample(i: number) {
+          setText(SAMPLE_MESSAGES[i]);
+          setResult(null);
+        }
 
   return (
     <section id="detector" className="relative mx-auto max-w-3xl px-4 sm:px-6">
