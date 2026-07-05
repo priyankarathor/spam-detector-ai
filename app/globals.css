@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface-light dark:bg-surface-dark text-slate-800 dark:text-slate-100 font-body antialiased transition-colors duration-300;
+  }
+
+  ::selection {
+    @apply bg-signal/30;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #6D5EF9;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/70 dark:bg-white/[0.04] backdrop-blur-xl border border-slate-200/60 dark:border-white/10 shadow-glass;
+  }
+
+  .glass-panel-solid {
+    @apply bg-white dark:bg-surface-darkAlt border border-slate-200 dark:border-white/10;
+  }
+
+  .signal-text {
+    @apply bg-signal-gradient bg-clip-text text-transparent;
+  }
+
+  .noise-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .noise-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-white/10 rounded-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
