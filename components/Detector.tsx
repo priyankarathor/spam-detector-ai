@@ -80,8 +80,7 @@ async function handleAnalyze() {
       : [
           "Safe Content",
         ],
-
-  createdAt: new Date().toISOString(),
+// createdAt: new Date().toISOString(),
 };
 
     setResult(prediction);
