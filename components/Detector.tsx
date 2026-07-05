@@ -60,29 +60,27 @@ async function handleAnalyze() {
     const data = await response.json();
 
     console.log("API Response:", data);
+const prediction: PredictionResult = {
+  id: crypto.randomUUID(),
 
-   const prediction: PredictionResult = {
-        id: crypto.randomUUID(),
+  message: data.input_message,
 
-        message: data.input_message,
+  verdict: data.prediction === "Spam" ? "spam" : "safe",
 
-        verdict: data.prediction === "Spam" ? "spam" : "safe",
+  confidence: data.prediction === "Spam" ? 95 : 96,
 
-        confidence: data.prediction === "Spam" ? 95 : 96,
-
-        topSignals:
-          data.prediction === "Spam"
-            ? [
-                "Spam Keywords",
-                "Marketing Language",
-                "Urgent Offer",
-              ]
-            : [
-                "Safe Content",
-              ],
-      createdAt: new Date().toISOString(),
-      };
-
+  topSignals:
+    data.prediction === "Spam"
+      ? [
+          "Spam Keywords",
+          "Marketing Language",
+          "Urgent Offer",
+        ]
+      : [
+          "Safe Content",
+        ],
+timestamp: new Date().toISOString(),
+};
           setResult(prediction);
 
           onResult(prediction);

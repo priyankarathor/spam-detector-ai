@@ -2,11 +2,11 @@ export type Verdict = "spam" | "safe";
 
 export interface PredictionResult {
   id: string;
-  message: string;
-  verdict: "spam" | "safe";
+  verdict: Verdict;
   confidence: number;
+  message: string;
+  timestamp: string;
   topSignals: string[];
-  createdAt: string;
 }
 
 export interface AnalyticsSnapshot {
