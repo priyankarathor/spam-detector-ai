@@ -60,7 +60,7 @@ export default function Hero() {
           className="mt-7 flex items-center justify-center gap-2 text-xs font-medium text-slate-500 dark:text-slate-400"
         >
           <ShieldCheck size={14} className="text-safe" />
-          Trained on 4.2M labeled messages · 98.6% precision
+          Trained on 5K labeled messages · 90.6% precision
         </motion.div>
       </div>
     </section>
