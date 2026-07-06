@@ -1,7 +1,7 @@
 import { PredictionResult } from "@/types";
 
 /**
- * In production this function calls a FastAPI backend, e.g.:
+ * In production this function calls a FastAPI integration  backend, e.g.:
  *
  *   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/predict`, {
  *     method: "POST",
